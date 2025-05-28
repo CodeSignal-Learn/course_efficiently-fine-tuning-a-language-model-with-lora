@@ -21,20 +21,20 @@ This project demonstrates how to fine-tune BERT using LoRA (Low-Rank Adaptation)
 ├── 3-inference_lora.py       # LoRA fine-tuned model inference
 ├── 4-evaluation.py           # Model comparison and evaluation
 ├── run_training.sh           # Training script with warning suppression
-├── run_code.sh              # Basic run script with warning suppression
+├── run_code.sh               # Basic run script with warning suppression
 ├── requirements.txt          # Python dependencies
 ├── data/                     # Datasets
-│   ├── imdb_dataset.csv     # Raw IMDB dataset (63MB)
+│   ├── imdb_dataset.csv      # Raw IMDB dataset (63MB)
 │   └── tokenized_data/
-│       ├── train/           # Training set (70%)
-│       ├── validation/      # Validation set (15%)
-│       └── test/           # Test set (15%)
-├── adapters/                # LoRA adapter weights
+│       ├── train/            # Training set (70%)
+│       ├── validation/       # Validation set (15%)
+│       └── test/             # Test set (15%)
+├── adapters/                 # LoRA adapter weights
 │   └── bert-base-cased-sentiment-lora/
 │       └── final/
-├── training_output/         # Training checkpoints and logs
-├── .cache/                  # Cached models and tokenizers
-└── utils/                   # Utility scripts
+├── training_output/          # Training checkpoints and logs
+├── .cache/                   # Cached models and tokenizers
+└── utils/                    # Utility scripts
 ```
 
 ## 🚀 Quick Start

@@ -3,18 +3,16 @@ import torch
 
 
 def load_model():
-    """Load the base BERT model and tokenizer without LoRA."""
+    """Load the cached BERT model and tokenizer."""
     model_name = 'bert-base-cased'
-    cache_dir = ".cache/models"
     
     # Load model configuration
     config = BertConfig.from_pretrained(
         model_name,
-        num_labels=2,
-        cache_dir=cache_dir
+        num_labels=2
     )
     
-    # Load base model with config (no LoRA)
+    # Load base model with config
     model = BertForSequenceClassification.from_pretrained(
         model_name,
         config=config
@@ -22,8 +20,7 @@ def load_model():
     
     # Load the tokenizer
     tokenizer = BertTokenizer.from_pretrained(
-        model_name,
-        cache_dir=cache_dir
+        model_name
     )
 
     # Return the model and tokenizer

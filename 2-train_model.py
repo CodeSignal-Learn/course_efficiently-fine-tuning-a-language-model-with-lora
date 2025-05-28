@@ -12,15 +12,13 @@ from transformers import (
 train_dataset = load_from_disk("data/tokenized_data/train")
 val_dataset = load_from_disk("data/tokenized_data/validation")  # Use validation set for training evaluation
 
-# Define the output directories
-training_output_dir = "training_output/bert-base-cased-sentiment-lora"  # Temporary training files
+# Define the output directory
 final_adapter_dir = "adapters/bert-base-cased-sentiment-lora/final"     # Final adapter location
 
 # Load the pre-trained BERT model for sequence classification with caching
 model = BertForSequenceClassification.from_pretrained(
     'bert-base-cased', 
-    num_labels=2,
-    cache_dir=".cache/models"
+    num_labels=2
 )
 
 # Define the LoRA configuration with:
@@ -56,11 +54,9 @@ def compute_metrics(eval_pred):
 
 
 # Define the training arguments with:
-# - output_dir: The directory to save training checkpoints (temporary)
 # - eval_strategy: The evaluation strategy (epochs)
 # - num_train_epochs: The number of training epochs
 training_args = TrainingArguments(
-    output_dir=training_output_dir,  # Temporary training files
     eval_strategy="epoch",
     num_train_epochs=25,
     label_names=["labels"]  # Add label names to prevent warning
@@ -88,4 +84,3 @@ trainer.save_model(final_adapter_dir)
 
 # Print the saved adapter path
 print(f"LoRA adapter saved to: {final_adapter_dir}")
-print(f"Training checkpoints saved to: {training_output_dir}")

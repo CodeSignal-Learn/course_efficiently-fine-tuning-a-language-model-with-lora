@@ -2,7 +2,6 @@ from transformers import BertForSequenceClassification, BertTokenizer
 
 # Define the model name and cache directory
 model_name = "bert-base-cased"
-cache_dir = ".cache/models"
 
 # Cache the model and tokenizer
 def cache_model_components():
@@ -10,15 +9,13 @@ def cache_model_components():
     # Load and cache the pre-trained BERT model
     model = BertForSequenceClassification.from_pretrained(
         model_name,
-        num_labels=2,
-        cache_dir=cache_dir
+        num_labels=2
     )
     # Load and cache the BERT tokenizer
     tokenizer = BertTokenizer.from_pretrained(
-        model_name,
-        cache_dir=cache_dir
+        model_name
     )
-    print(f"{model_name} model and tokenizer successfully cached in {cache_dir}!")
+    print(f"{model_name} model and tokenizer successfully cached!")
 
 
 if __name__ == "__main__":

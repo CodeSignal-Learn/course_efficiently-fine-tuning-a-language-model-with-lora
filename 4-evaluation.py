@@ -17,13 +17,11 @@ def load_model(adapter_path=None):
         tuple: (model, tokenizer)
     """
     model_name = 'bert-base-cased'
-    cache_dir = ".cache/models"
     
     # Load model configuration
     config = BertConfig.from_pretrained(
         model_name,
-        num_labels=2,
-        cache_dir=cache_dir
+        num_labels=2
     )
     
     # Load base model with config

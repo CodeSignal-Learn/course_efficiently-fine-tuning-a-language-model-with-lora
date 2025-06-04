@@ -7,10 +7,10 @@ import os
 model_name = "bert-base-cased"
 
 # Define the number of samples and split ratios
-num_samples = 2000
-train_ratio = 0.7   # 70% for training
-val_ratio = 0.15    # 15% for validation (used during training)
-test_ratio = 0.15   # 15% for final testing (never seen during training)
+num_samples = 1000
+train_ratio = 0.8   # 80% for training
+val_ratio = 0.15    # 15% for validation
+test_ratio = 0.05   # 5% for final testing
 
 # Load the IMDB dataset from local CSV file
 df = pd.read_csv("data/imdb_dataset.csv")

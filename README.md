@@ -6,7 +6,7 @@ This project demonstrates how to fine-tune BERT using LoRA (Low-Rank Adaptation)
 
 - **Model**: BERT-base-cased (110M parameters)
 - **Task**: Binary sentiment classification (Positive/Negative)
-- **Dataset**: IMDB movie reviews (2,000 balanced samples)
+- **Dataset**: IMDB movie reviews (1,000 balanced samples)
 - **Method**: LoRA (Low-Rank Adaptation) fine-tuning
 - **Framework**: Hugging Face Transformers + PEFT
 
@@ -117,10 +117,10 @@ The evaluation will compare:
 
 Expected output:
 ```
-Base BERT Accuracy:     0.4967 (49.67%)
-BERT + LoRA Accuracy:   0.8833 (88.33%)
-Improvement:            38.67 percentage points
-Relative Improvement:   77.89%
+Base BERT Accuracy:     0.4400 (44.00%)
+BERT + LoRA Accuracy:   0.8800 (88.00%)
+Improvement:            44.00 percentage points
+Relative Improvement:   100.00%
 ```
 
 ## 🔧 Detailed Usage
@@ -130,7 +130,7 @@ Relative Improvement:   77.89%
 python utils/download_dataset.py
 ```
 - Downloads full IMDB dataset from Hugging Face
-- Samples 2,000 balanced instances (1,000 positive, 1,000 negative)
+- Samples 1,000 balanced instances (500 positive, 500 negative)
 - Saves to `data/imdb_dataset.csv`
 - Uses stratified sampling to maintain label balance
 
@@ -174,10 +174,10 @@ training_args = TrainingArguments(
 
 ### Dataset Configuration
 ```python
-num_samples = 2000      # Total samples to use
-train_ratio = 0.7       # 70% for training
+num_samples = 1000      # Total samples to use
+train_ratio = 0.8       # 80% for training
 val_ratio = 0.15        # 15% for validation
-test_ratio = 0.15       # 15% for testing
+test_ratio = 0.05       # 5% for testing
 ```
 
 ## 📈 Key Benefits of LoRA
